@@ -8,9 +8,9 @@ import java.util.List;
  */
 public class OrgRes {
     private Integer id;
-    private String name;
-    private Boolean disabled;
-    private List<OrgRes> list;
+    private String label;
+    private Boolean isDisabled;
+    private List<OrgRes> children;
 
     public Integer getId() {
         return id;
@@ -20,27 +20,27 @@ public class OrgRes {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLabel() {
+        return label;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
-    public Boolean getDisabled() {
-        return disabled;
+    public Boolean getIsDisabled() {
+        return isDisabled;
     }
 
-    public void setDisabled(Boolean disabled) {
-        this.disabled = disabled;
+    public void setIsDisabled(Boolean disabled) {
+        this.isDisabled = disabled;
     }
 
-    public List<OrgRes> getList() {
-        return list;
+    public List<OrgRes> getChildren() {
+        return children;
     }
 
-    public void setList(List<OrgRes> list) {
-        this.list = list;
+    public void setChildren(List<OrgRes> children) {
+        this.children = children;
     }
 }

@@ -74,8 +74,8 @@ public class OrgServiceImpl implements OrgService {
         for (OrgBusinessEntity rb : listB) {
             OrgRes orgRes = new OrgRes();
             orgRes.setId(rb.getId());
-            orgRes.setName(rb.getName());
-            orgRes.setList(listD(orgRes));
+            orgRes.setLabel(rb.getName());
+            orgRes.setChildren(listD(orgRes));
             list.add(orgRes);
         }
         return list;
@@ -90,13 +90,13 @@ public class OrgServiceImpl implements OrgService {
             List<OrgRes> listU = listU(rd.getId());
             OrgRes orgRes = new OrgRes();
             orgRes.setId(rd.getId());
-            orgRes.setName(rd.getName());
-            orgRes.setList(listU);
+            orgRes.setLabel(rd.getName());
+            orgRes.setChildren(listU);
             if (listU.size() == orgMapper.cG(rd.getId())) {
-                orgRes.setDisabled(true);
+                orgRes.setIsDisabled(true);
                 --i;
             }
-            if (i == 0) org.setDisabled(true);
+            if (i == 0) org.setIsDisabled(true);
             list.add(orgRes);
         }
         return list;
@@ -111,9 +111,9 @@ public class OrgServiceImpl implements OrgService {
         for (OrgUserEntity ru : listU) {
             OrgRes orgRes = new OrgRes();
             orgRes.setId(ru.getId());
-            orgRes.setName(ru.getName());
-            orgRes.setList(null);
-            if (listUByG.contains(ru.getId())) orgRes.setDisabled(true);
+            orgRes.setLabel(ru.getName());
+            orgRes.setChildren(null);
+            if (listUByG.contains(ru.getId())) orgRes.setIsDisabled(true);
             list.add(orgRes);
         }
         return list;
