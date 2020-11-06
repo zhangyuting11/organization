@@ -16,31 +16,35 @@ public class OrgRes {
         return id;
     }
 
-    public void setId(Integer id) {
+    public OrgRes setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public String getLabel() {
         return label;
     }
 
-    public void setLabel(String label) {
+    public OrgRes setLabel(String label) {
         this.label = label;
+        return this;
     }
 
     public Boolean getIsDisabled() {
         return isDisabled;
     }
 
-    public void setIsDisabled(Boolean disabled) {
+    public OrgRes setIsDisabled(Boolean disabled) {
         this.isDisabled = disabled;
+        return this;
     }
 
     public List<OrgRes> getChildren() {
         return children;
     }
 
-    public void setChildren(List<OrgRes> children) {
+    public OrgRes setChildren(List<OrgRes> children) {
         this.children = children;
+        return this;
     }
 }
