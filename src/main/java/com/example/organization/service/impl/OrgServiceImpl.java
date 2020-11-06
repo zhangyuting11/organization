@@ -20,14 +20,19 @@ import java.util.stream.Collectors;
  */
 
 @Service
-public class OrgServiceImpl implements OrgService {
+public class OrgServiceImpl implements OrgService<OrgBusinessEntity> {
 
     @Autowired
     private OrgMapper orgMapper;
 
     @Override
-    public int add(OrgBusinessEntity orgBusinessEntity) {
-        return orgMapper.add(orgBusinessEntity);
+    public void add(OrgBusinessEntity entity) {
+        orgMapper.add(entity);
+    }
+
+    @Override
+    public void delete(Integer id) {
+        orgMapper.deleteGroupUser(id);
     }
 
     @Override
@@ -57,15 +62,12 @@ public class OrgServiceImpl implements OrgService {
         //已经存在的用户
         List<Integer> lg = orgMapper.listUByG();
         if (userList.containsAll(lg)) userList.removeAll(lg);
+        else if(lg.containsAll(userList)) return 0;
         //去重
         userList = userList.stream().distinct().collect(Collectors.toList());
         return orgMapper.addGroupUser(userList);
     }
 
-    @Override
-    public int deleteGroupUser(Integer id) {
-        return orgMapper.deleteGroupUser(id);
-    }
 
     @Override
     public List<OrgRes> list() {

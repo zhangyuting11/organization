@@ -23,7 +23,8 @@ public class OrgController {
 
     @PostMapping("/add")
     public ResponseEntity add(@RequestBody OrgBusinessEntity entity) {
-        return ResponseEntity.ok(orgService.add(entity));
+        orgService.add(entity);
+        return ResponseEntity.ok("成功");
     }
 
     @GetMapping(value = "/list")
@@ -48,7 +49,8 @@ public class OrgController {
 
     @DeleteMapping(value = "deleteGroupUser")
     public ResponseEntity deleteGroupUser(@RequestParam(value = "id") Integer id) {
-        return ResponseEntity.ok(orgService.deleteGroupUser(id));
+        orgService.delete(id);
+        return ResponseEntity.ok("成功");
     }
 
 
