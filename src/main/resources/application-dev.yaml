@@ -1,0 +1,10 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /api
+
+
+logging:
+  level:
+    com.example.organization.mapper: debug
+    org.springframework.boot.autoconfigure: info

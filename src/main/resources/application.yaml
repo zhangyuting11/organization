@@ -4,13 +4,9 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+  profiles:
+    active: dev
 mybatis:
   type-aliases-package: com.example.organization.entity
-server:
-  port: 8888
-  servlet:
-    context-path: /api
-logging:
-  level:
-    com.example.organization.mapper: debug
-    org.springframework.boot.autoconfigure: info
+
